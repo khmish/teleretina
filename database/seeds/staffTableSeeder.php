@@ -1,8 +1,8 @@
 <?php
-use Faker\Generator as Faker;
+
 use Illuminate\Database\Seeder;
 
-class patientTableSeeder extends Seeder
+class staffTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,10 +14,11 @@ class patientTableSeeder extends Seeder
         //
         $faker = Faker\Factory::create();
         foreach (range(1,50) as $index) {
-	        DB::table('patients')->insert([
-                'id' =>($index+1000000050),
-                'user_id' =>$index+50,
-                'firstName' =>$faker->firstName($gender = null|'male'|'female'),
+	        DB::table('staff')->insert([
+                'id' =>($index+1000000000),
+                'user_id' =>$index,
+                'clinic_id' =>$faker->numberBetween(1,50),
+                'firstName' =>$faker->firstName(),
                 'lastName' =>$faker->lastName(),
                 'phone' =>'0500000000',
                 'address' => $faker->address,

@@ -13,12 +13,13 @@ class appointmentTableSeeder extends Seeder
     {
         //
         $faker = Faker\Factory::create();
-        foreach (range(1,100) as $index) {
+        foreach (range(1,50) as $index) {
 	        DB::table('appointments')->insert([
-                'patient_id' =>$faker->numberBetween(1,50),
-                'doctor_id' =>$faker->numberBetween(1,25),
-                'staff_id' =>$faker->numberBetween(26,50),
-                'report_number' =>$faker->numberBetween(1,50),
+                'patient_id' =>($index+1000000050),
+                'doctor_id' =>($index+1000000000),
+                'staff_id' =>($index+1000000025),
+                'report_number' =>$index,
+                'clinic_id' => $faker->numberBetween(1,50),
                 'appointment_date' =>$faker->date($format = 'Y/m/d'),
 	        ]);
         }
