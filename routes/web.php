@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/he', function () {
+    $appo= App\Appointment::first();
+
+    return $appo->staff;
+});
