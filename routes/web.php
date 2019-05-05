@@ -44,3 +44,7 @@ Route::get('/report', function () {
 Route::get('/checkup', function () {
     return view('Checkup/index');
 });
+
+Route::get('/appointments', function () {
+    return view('Appointments/index');
+});

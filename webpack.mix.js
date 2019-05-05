@@ -18,6 +18,7 @@ mix
     .js('resources/views/Home3/App.vue', 'public/js/home3-app.js')
     .js('resources/views/Report/App.vue', 'public/js/report-app.js')
     .js('resources/views/Checkup/App.vue', 'public/js/checkup-app.js')
+    .js('resources/views/Appointments/App.vue', 'public/js/appointments-app.js')
 
     .sass('resources/sass/app.scss', 'public/css/app.css')
 

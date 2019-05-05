@@ -10,6 +10,7 @@ export default new Vue({
                 { title: "Theme3", link: "/theme3" },
 				{ title: "Report", link: "/report" },
                 { title: "Checkup", link: "/checkup" },
+                { title: "Appointments", link: "/appointments" },
 			]
 		};
 	}
