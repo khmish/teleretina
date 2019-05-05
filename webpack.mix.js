@@ -11,5 +11,14 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix
+    .js('resources/views/Home/App.vue', 'public/js/home-app.js')
+    .js('resources/views/Pages/App.vue', 'public/js/pages-app.js')
+    .js('resources/views/Home2/App.vue', 'public/js/home2-app.js')
+    .js('resources/views/Home3/App.vue', 'public/js/home3-app.js')
+    .js('resources/views/Report/App.vue', 'public/js/report-app.js')
+    .js('resources/views/Checkup/App.vue', 'public/js/checkup-app.js')
+
+    .sass('resources/sass/app.scss', 'public/css/app.css')
+
+    .extract()

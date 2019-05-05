@@ -20,3 +20,27 @@ Route::get('/he', function () {
 
     return $appo->staff;
 });
+
+Route::get('/', function () {
+    return view('Home/index');
+});
+
+Route::get('/pages', function () {
+    return view('Pages/index');
+});
+
+Route::get('/theme2', function () {
+    return view('Home2/index');
+});
+
+Route::get('/theme3', function () {
+    return view('Home3/index');
+});
+
+Route::get('/report', function () {
+    return view('Report/index');
+});
+
+Route::get('/checkup', function () {
+    return view('Checkup/index');
+});
