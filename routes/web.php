@@ -48,3 +48,12 @@ Route::get('/checkup', function () {
 Route::get('/appointments', function () {
     return view('Appointments/index');
 });
+
+
+// Appointment Section************************************************* */
+
+Route::get('/appointmentsList', 'AppointmentController@index');
+Route::post('/appointment/add', 'AppointmentController@store');
+Route::post('/appointment/edit', 'AppointmentController@update');
+Route::post('/appointment/delete', 'AppointmentController@destroy');
+

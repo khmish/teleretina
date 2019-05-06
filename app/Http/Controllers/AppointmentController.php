@@ -15,6 +15,8 @@ class AppointmentController extends Controller
     public function index()
     {
         //
+        $appointment=Appointment::where('state', 1)->paginate(50);
+        return $appointment;
     }
 
     /**
@@ -24,6 +26,7 @@ class AppointmentController extends Controller
      */
     public function create()
     {
+        
         //
     }
 
@@ -36,6 +39,20 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         //
+        $appointment=new Appointment;
+        $appointment->patient_id= $request->patient_id;
+        $appointment->doctor_id= $request->doctor_id;
+        $appointment->staff_id= $request->staff_id;
+        $appointment->report_number= $request->report_number;
+        $appointment->clinic_id= $request->clinic_id;
+        $appointment->appointment_date =$request->appointment_date;
+        $appointment->appointment_detail=$request->appointment_detail;
+
+        if($appointment->save())
+        {
+            return $appointment;
+        }
+        
     }
 
     /**
@@ -55,9 +72,9 @@ class AppointmentController extends Controller
      * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Appointment $appointment)
+    public function edit(Appointment $appointment_para)
     {
-        //
+        
     }
 
     /**
@@ -67,9 +84,21 @@ class AppointmentController extends Controller
      * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Appointment $appointment)
+    public function update(Request $request)
     {
-        //
+        $appointment=Appointment::find($request->id);
+        $appointment->patient_id= $request->patient_id;
+        $appointment->doctor_id= $request->doctor_id;
+        $appointment->staff_id= $request->staff_id;
+        $appointment->report_number= $request->report_number;
+        $appointment->clinic_id= $request->clinic_id;
+        $appointment->appointment_date =$request->appointment_date;
+        $appointment->appointment_detail=$request->appointment_detail;
+
+        if($appointment->save())
+        {
+            return $appointment;
+        }
     }
 
     /**
@@ -78,8 +107,15 @@ class AppointmentController extends Controller
      * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Appointment $appointment)
+    public function destroy(Request $request)
     {
-        //
+        $appointment=Appointment::find($request->id);
+        $appointment->state= 0;
+       
+
+        if($appointment->save())
+        {
+            return $appointment;
+        }
     }
 }
