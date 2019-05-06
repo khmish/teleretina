@@ -19,6 +19,7 @@ class CreateReportsTable extends Migration
             $table->text('detail')->nullable();
             $table->text('note')->nullable();
             $table->date('date');
+            $table->time('time')->default('00:00');
             $table->integer('state')->default('1');;
             $table->timestamps();
         });

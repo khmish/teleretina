@@ -21,6 +21,7 @@ class CreateAppointmentsTable extends Migration
             $table->integer('report_number');
             $table->integer('clinic_id');
             $table->date('appointment_date');
+            $table->time('appointment_time')->default('00:00');
             $table->text('appointment_detail')->nullable();
             $table->integer('state')->default('1');;
             $table->timestamps();
