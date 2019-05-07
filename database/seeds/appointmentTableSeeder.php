@@ -18,9 +18,9 @@ class appointmentTableSeeder extends Seeder
                 'patient_id' =>($index+1000000050),
                 'doctor_id' =>($index+1000000000),
                 'staff_id' =>($index+1000000025),
-                'report_number' =>$index,
                 'clinic_id' => $faker->numberBetween(1,50),
-                'appointment_date' =>$faker->date($format = 'Y/m/d'),
+                'appointment_date' =>$faker->dateTimeBetween($startDate = 'now', $endDate = '+5 years'),
+                'appointment_time'=>  $faker->time($format = 'H:i'),
 	        ]);
         }
     }
