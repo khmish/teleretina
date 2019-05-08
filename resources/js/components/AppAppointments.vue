@@ -18,8 +18,8 @@
 							<td>{{ props.item.id }}</td>
 							<td>{{ props.item.fname }}</td>
 							<td>{{ props.item.lname }}</td>
-							<td>{{ props.item.date }}</td>
-							<td>{{ props.item.time }}</td>
+							<td>{{ props.item.appointment_date }}</td>
+							<td>{{ props.item.appointment_time }}</td>
 							<td>
 								<v-checkbox v-model="props.item.attend" hide-details></v-checkbox>
 							</td>
@@ -61,12 +61,12 @@ export default {
 			{
 				text: "Date",
 				align: "left",
-				value: "date"
+				value: "appointment_date"
 			},
 			{
 				text: "Time",
 				align: "left",
-				value: "time"
+				value: "appointment_time"
 			},
 			{
 				text: "Attend",
@@ -85,39 +85,7 @@ export default {
 	methods: {
 		fetchData() {
 			const thisVue = this;
-			setTimeout(() => {
-				thisVue.items = [
-					{
-						id: 1,
-						fname: "John",
-						lname: "Boo",
-						date: "2019-05-06",
-						time: "01:30 PM",
-						attend: true
-					},
-					{
-						id: 2,
-						fname: "Mary",
-						lname: "Brown",
-						date: "2019-05-06",
-						time: "02:00 PM",
-						attend: true
-					},
-					{
-						id: 3,
-						fname: "James",
-						lname: "Mooray",
-						date: "2019-05-06",
-						time: "02:30 PM",
-						attend: false
-					}
-				];
-				thisVue.loading = false;
-			}, 1000);
-
-            return;
-            
-			const url = "/getAppointments";
+			const url = "/appointmentsList";
 
 			axios
 				.get(url)
@@ -125,6 +93,8 @@ export default {
 					console.log(response);
 					if (response.status == 200) {
 						console.log("200");
+						thisVue.loading = false;
+						thisVue.items = response.data.data;
 					}
 				})
 				.catch(error => {
