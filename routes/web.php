@@ -16,9 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/he', function () {
-    $appo= App\Appointment::first();
+    $appo= App\Appointment::find(4);
 
-    return $appo->staff;
+    return $appo->report;
 });
 
 Route::get('/', function () {

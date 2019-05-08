@@ -22,7 +22,7 @@ class Appointment extends Model
     }
     public function report()
     {
-        return $this->belongsTo('App\Report','report_number');
+        return $this->belongsTo('App\Report','id','appointment_id');
     }
     public function clinic()
     {
