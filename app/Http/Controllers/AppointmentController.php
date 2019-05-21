@@ -17,14 +17,16 @@ class AppointmentController extends Controller
     public function index()
     {
         //
-        $appointment=Appointment::all();
+        $appointment=Appointment::where('state',1)->paginate(50);
         
-        return $appointment->map(function ($value) {
+        $appointment = $appointment->map(function ($value) {
             $value->patient = Patient::find($value->patient);
             $value->doctor = Staff::find($value->doctor);
             $value->staff = Staff::find($value->staff);
             return $value;
         });
+       // $appointment = $appointment->paginate(50);
+        return $appointment;
     }
 
     /**
