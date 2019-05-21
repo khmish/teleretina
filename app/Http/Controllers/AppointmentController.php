@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Appointment;
+use App\Patient;
+use App\Staff;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -15,8 +17,14 @@ class AppointmentController extends Controller
     public function index()
     {
         //
-        $appointment=Appointment::where('state', 1)->paginate(50);
-        return $appointment;
+        $appointment=Appointment::all();
+        
+        return $appointment->map(function ($value) {
+            $value->patient = Patient::find($value->patient);
+            $value->doctor = Staff::find($value->doctor);
+            $value->staff = Staff::find($value->staff);
+            return $value;
+        });
     }
 
     /**
