@@ -41,7 +41,7 @@ Route::get('/report', function () {
     return view('Report/index');
 });
 
-Route::get('/checkup', function () {
+Route::get('/checkup/{id}', function () {
     return view('Checkup/index');
 });
 
