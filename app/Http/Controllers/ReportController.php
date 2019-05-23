@@ -36,6 +36,18 @@ class ReportController extends Controller
     public function store(Request $request)
     {
         //
+        $report= new Report;
+        $report->appointment_id=$request->appointment_id;
+        $report->detail=$request->detail;
+        $report->note=$request->note;
+        $report->date=$request->date;
+        $report->time=$request->time;
+        $report->state=$request->state;
+
+        if($report->save()){
+            
+        }
+
     }
 
     /**
