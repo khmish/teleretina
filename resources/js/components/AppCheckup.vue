@@ -15,7 +15,7 @@
 									</v-flex>
 									<v-flex xs12 sm6 v-for="i in 2" :key="i">
 										<v-img
-											src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/common_eye_conditions_slideshow/princ_rm_photo_of_swollen_eye.jpg"
+											src="/res/retina.jpg"
 											alt="eye"
 											:height="$vuetify.breakpoint.xsOnly ? '100' : '200'"
 										></v-img>
