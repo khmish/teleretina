@@ -1,8 +1,9 @@
 <template>
 	<v-toolbar app dense>
 		<v-toolbar-title class="headline">
-			<span>Tele</span>
-			<span class="font-weight-light">Retina</span>
+			<span class="font-weight-light">
+				<strong class="font-weight-medium">Tele</strong>Retina
+			</span>
 		</v-toolbar-title>
 		<v-spacer></v-spacer>
 		<v-toolbar-items>
