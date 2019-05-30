@@ -14,6 +14,7 @@
 								single-line
 								hide-details
 								v-model="search"
+                                clearable
 							></v-text-field>
 						</v-flex>
 					</v-layout>
@@ -22,33 +23,33 @@
 					<v-data-table
 						:headers="headers"
 						:items="items"
-						hide-actions
 						:loading="loading"
 						no-data-text="Fetching..."
 						:search="search"
-						dense
+						multi-sort
 					>
-						<template v-slot:items="props">
-							<td>{{ props.item.id }}</td>
-							<td>{{ props.item.name }}</td>
-							<td>{{ props.item.doctor }}</td>
-							<td>{{ props.item.appointment_date }}</td>
-							<td>{{ props.item.appointment_time }}</td>
-							<td>
-								<v-switch v-model="props.item.attend" hide-details></v-switch>
-							</td>
-							<td>
-								<v-btn
-									color="success"
-									class="text-none"
-									small
-									round
-									@click="goToCheckUp(props.item.id)"
-								>Select</v-btn>
-							</td>
-							<td>
-								<v-btn color="error" class="text-none" small round>Send reminder</v-btn>
-							</td>
+						<template v-slot:item.attend="{ item }">
+							<v-switch v-model="item.attend" hide-details></v-switch>
+						</template>
+
+						<template v-slot:item.actions="{ item }">
+							<span style="white-space: nowrap;">
+								<v-tooltip bottom>
+									<template v-slot:activator="{ on }">
+										<v-icon color="success" v-on="on" @click="goToCheckUp(item.id)">mdi-open-in-new</v-icon>
+									</template>
+
+									<span>Select</span>
+								</v-tooltip>
+
+								<v-tooltip bottom>
+									<template v-slot:activator="{ on }">
+										<v-icon color="error" v-on="on" @click=";">mdi-clock-alert</v-icon>
+									</template>
+
+									<span>Send reminder</span>
+								</v-tooltip>
+							</span>
 						</template>
 					</v-data-table>
 				</v-card-text>
@@ -71,7 +72,12 @@ export default {
 			{
 				text: "Patient Name",
 				align: "left",
-				value: "fname"
+				value: "name"
+			},
+			{
+				text: "Patient ID",
+				align: "left",
+				value: "patient_id"
 			},
 			{
 				text: "Doctor",
@@ -93,14 +99,7 @@ export default {
 				align: "left",
 				value: "attend"
 			},
-			{ sortable: false },
-			{ sortable: false },
-			{
-				text: "#",
-				align: "left",
-				value: "patient_id",
-				class: "hide"
-			}
+			{ text: "Actions", align: "center", value: "actions", sortable: false }
 		],
 		items: [],
 		loading: true,
@@ -146,7 +145,12 @@ export default {
 	font-weight: bold;
 }
 
-.hide {
-	display: none;
+.v-input--selection-controls {
+	margin-top: initial;
+	padding-top: initial;
+}
+
+.v-input--selection-controls__input {
+	margin-right: initial;
 }
 </style>

@@ -30,7 +30,7 @@
 									<v-text-field hide-details label="Attachment"></v-text-field>
 								</v-flex>
 								<v-flex xs12 sm3>
-									<v-btn color="primary" dark round class="text-none">Upload</v-btn>
+									<v-btn color="primary" dark rounded class="text-none">Upload</v-btn>
 								</v-flex>
 							</v-layout>
 						</v-flex>
@@ -70,7 +70,7 @@
 						<v-flex xs12 sm9>
 							<v-layout row wrap text-xs-center>
 								<v-flex xs12 sm9>
-									<v-btn color="primary" class="text-none" round large>Send</v-btn>
+									<v-btn color="primary" class="text-none" rounded>Send</v-btn>
 								</v-flex>
 							</v-layout>
 						</v-flex>

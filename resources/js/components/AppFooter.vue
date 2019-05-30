@@ -14,9 +14,9 @@
 			</v-flex>
 
 			<v-flex xs12 class="white--text text-xs-center">
-				<v-btn flat dark class="text-none">Home</v-btn>
-				<v-btn flat dark class="text-none">About Us</v-btn>
-				<v-btn flat dark class="text-none">Contact Us</v-btn>
+				<v-btn text dark class="text-none" href="/">Home</v-btn>
+				<v-btn text dark class="text-none">About Us</v-btn>
+				<v-btn text dark class="text-none">Contact Us</v-btn>
 			</v-flex>
 
 			<v-flex xs12 py-3 text-xs-center white--text>

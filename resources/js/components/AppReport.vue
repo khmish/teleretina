@@ -62,7 +62,7 @@
 						<v-flex xs12>
 							<v-layout row wrap text-xs-center>
 								<v-flex xs12>
-									<v-btn color="primary" class="text-none" round large>Send</v-btn>
+									<v-btn color="primary" class="text-none" rounded>Send</v-btn>
 								</v-flex>
 							</v-layout>
 						</v-flex>
