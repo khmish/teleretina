@@ -19,6 +19,8 @@ mix
     .js('resources/views/Report/App.vue', 'public/js/report-app.js')
     .js('resources/views/Checkup/App.vue', 'public/js/checkup-app.js')
     .js('resources/views/Appointments/App.vue', 'public/js/appointments-app.js')
+    .js('resources/views/Patient/App.vue', 'public/js/patient-app.js')
+    .js('resources/views/Patient-med-info/App.vue', 'public/js/patient-med-info-app.js')
 
     .sass('resources/sass/app.scss', 'public/css/app.css')
 

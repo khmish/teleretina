@@ -9,8 +9,10 @@ export default new Vue({
                 { title: "Theme2", link: "/theme2" },
                 { title: "Theme3", link: "/theme3" },
 				{ title: "Report", link: "/report" },
-                { title: "Checkup", link: "/checkup" },
+                { title: "Checkup", link: "/checkup/1" },
                 { title: "Appointments", link: "/appointments" },
+                { title: "Patient", link: "/patient" },
+                { title: "Patient Med Info", link: "/patient-med-info" },
 			]
 		};
 	}
